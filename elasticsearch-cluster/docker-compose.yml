@@ -1,0 +1,56 @@
+version: '3'
+services:
+  es-master:
+    image:  elasticsearch:6.4.3
+    container_name: es-master
+    restart: always
+    volumes:
+      - ./data/master/data:/usr/share/elasticsearch/data:rw
+      - ./conf/master/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./data/master/logs:/user/share/elasticsearch/logs:rw
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - es-cluster
+
+  es-node1:
+    image:  elasticsearch:6.4.3
+    container_name: es-node1
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./data/node1/data:/usr/share/elasticsearch/data:rw
+      - ./conf/node1/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./data/node1/logs:/user/share/elasticsearch/logs:rw
+    networks:
+      - es-cluster
+
+  es-node2:
+    image:  elasticsearch:6.4.3
+    container_name: es-node2
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    restart: always
+    volumes:
+      - ./data/node2/data:/usr/share/elasticsearch/data:rw
+      - ./conf/node2/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./data/node2/logs:/user/share/elasticsearch/logs:rw
+    networks:
+      - es-cluster
+
+  es-head:
+    image: tobias74/elasticsearch-head:6
+    container_name: es-head
+    restart: always
+    ports:
+      - "9100:9100"
+    networks:
+      - es-cluster
+
+networks:
+  es-cluster:
+    external: true

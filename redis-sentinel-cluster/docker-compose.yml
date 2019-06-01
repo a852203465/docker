@@ -1,0 +1,55 @@
+version: '2.1'
+services:
+  master:
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/redis:3
+    container_name: master
+    restart: always
+    volumes:
+      - ./data/master:/data
+    command: redis-server --port 16379
+    networks:
+      - redis-sentinel-cluster
+
+  slave1:
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/redis:3
+    container_name: slave1
+    restart: always
+    volumes:
+      - ./data/slave1:/data
+    command: redis-server --port 16380 --slaveof master 16379
+    networks:
+      - redis-sentinel-cluster
+
+  slave2:
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/redis:3
+    container_name: slave2
+    restart: always
+    volumes:
+      - ./data/slave2:/data
+    command: redis-server --port 16381 --slaveof master 16379
+    networks:
+      - redis-sentinel-cluster
+
+  sentinel-1:
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/redis-seninel:3
+    container_name: sentinel-1
+    restart: always
+    volumes:
+      - ./data/conf/sentinel-1.conf:/etc/redis/sentinel.conf
+      - ./data/sentinel-1:/data
+    networks:
+      - redis-sentinel-cluster
+
+  sentinel-2:
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/redis-seninel:3
+    container_name: sentinel-2
+    restart: always
+    volumes:
+      - ./data/conf/sentinel-2.conf:/etc/redis/sentinel.conf
+      - ./data/sentinel-2:/data
+    networks:
+      - redis-sentinel-cluster
+
+networks:
+  redis-sentinel-cluster:
+    external: true

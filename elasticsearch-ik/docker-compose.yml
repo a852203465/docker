@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   elasticsearch:
-    image: a852203465/elasticsearch-with-ik:6.5.0
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/elasticsearch-with-ik:6.5.0
     container_name: elasticsearch
     environment:
       - cluster.name=docker-cluster
@@ -20,7 +20,7 @@ services:
     networks:
       - esnet
   elasticsearch2:
-    image: a852203465/elasticsearch-with-ik:6.5.0
+    image: registry.cn-shenzhen.aliyuncs.com/common-workspace/elasticsearch-with-ik:6.5.0
     container_name: elasticsearch2
     environment:
       - cluster.name=docker-cluster

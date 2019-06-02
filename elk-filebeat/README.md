@@ -1,6 +1,6 @@
 1. 运行 镜像文件
 
-进入 elk-filebeat 文件, 执行命令
+进入 elk-filebeat 文件夹, 执行命令
 
 docker-compose up -d
 

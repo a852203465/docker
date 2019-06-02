@@ -5,11 +5,12 @@ services:
     image: wurstmeister/zookeeper:latest 
     container_name: zookeeper
     hostname: zookeeper
+    privileged: true
     ports:
       - 2181:2181
     volumes:
 #      - ./data/streaming/zookeeper/data:/data
-      - ./data/streaming/logs/zookeeper:/data/version-2
+#      - ./data/streaming/logs/zookeeper:/data/version-2
     networks:
       - streaming_net
 
@@ -85,7 +86,7 @@ services:
   kafka-manager:
     image: sheepkiller/kafka-manager:latest                 # 镜像：开源的web管理kafka集群的界面
     container_name: kafka-manager
-    hostname: kafka-manager`
+    hostname: kafka-manager
     environment:
       ZK_HOSTS: zookeeper:2181
       KAFKA_BROKERS: kafka1:9091,kafka2:9092,kafka3:9093

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   elk:
-    image: registry.cn-shenzhen.aliyuncs.com/apply-workspace/elk:640
+    image: sebp/elk:640
     container_name: elk-filebeat_elk
     hostname: elk
     ports:
@@ -17,7 +17,7 @@ services:
       - elk-filebeat
 
   filebeat:
-    image: registry.cn-shenzhen.aliyuncs.com/apply-workspace/filebeat:6
+    image: prima/filebeat:6
     container_name: elk-filebeat_filebeat
     volumes:
       - ./data/filebeat/config/filebeat.yml:/filebeat.yml

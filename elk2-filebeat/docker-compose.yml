@@ -1,0 +1,93 @@
+version: "3"
+services:
+  elasticsearch:
+    image: docker.io/elasticsearch:5.6.5
+    container_name: elasticsearch
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
+    hostname: elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - elk2-filebeat
+
+  kibana:
+    image: docker.io/kibana:5.6.5
+    container_name: kibana
+    hostname: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    networks:
+      - elk2-filebeat
+
+  logstash:
+    image: docker.io/logstash:5.6.5
+    container_name: logstash
+    hostname: logstash
+    depends_on:
+      - elasticsearch
+    volumes:
+      - $PWD/logstash/conf.d:/etc/logstash/conf.d
+      - $PWD/logstash/logs:/tmp
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    ports:
+      - 7001-7005:7001-7005
+      - 4560:4560
+    networks:
+      - elk2-filebeat
+
+  filebeat:
+    image: prima/filebeat:6
+    container_name: filebeat
+    volumes:
+      - ./filebeat/config/filebeat.yml:/filebeat.yml
+      - ./filebeat/data:/data
+      - /var/lib/docker/containers:/var/lib/docker/containers
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk2-filebeat
+
+networks:
+  elk2-filebeat:
+    external: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

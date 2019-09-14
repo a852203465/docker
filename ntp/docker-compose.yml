@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+   ntp:
+     image: ntp
+     container_name: ntp-server
+     restart: always
+     ports:
+       - 123:123
+     volumes:
+       - /etc/localtime:/etc/localtime:ro
+#       - /etc/timezone:/etc/timezone:ro
+     networks:
+       - ntp-server
+
+networks:
+  ntp-server:
+    external:
+      name: app_net
+

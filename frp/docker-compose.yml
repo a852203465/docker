@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  frp:
+    image: ruiny/frps
+    container_name: frps
+    restart: always
+    volumes:
+      - ./conf:/var/frp/conf
+    ports:
+      - 5000-5100:5000-5100
+      - 7000:7000
+      - 7500:7500
+      - 7001:7001
+      - 8089:80
+      - 8443:443
+    networks:
+      - frps_net
+
+networks:
+  frps_net:
+    external: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

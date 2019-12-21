@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  easydarwin:
+    image: a852203465/easydrwin:1.0
+    container_name: easydarwin
+    ports:
+      - 10008:10008
+      - 554:554
+
+
+

@@ -4,9 +4,15 @@ services:
   easydarwin:
     image: a852203465/easydrwin:1.0
     container_name: easydarwin
+    restart: always
     ports:
       - 10008:10008
       - 554:554
+    volumes:
+      - /data/easydarwin/logs:/home/easydarwin/logs
+    networks:
+      - easydarwin_net
 
-
-
+networks:
+  easydarwin_net:
+    external: true

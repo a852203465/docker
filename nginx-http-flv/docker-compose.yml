@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  nginx-flv: 
+    image: mycujoo/nginx-http-flv-module
+    container_name: nginx-flv
+    ports:
+      - 80:80
+      - 1935:1935
+    volumes:
+      - ./data/conf/nginx.conf:/opt/nginx/nginx.conf
+      - ./data/logs:/var/log/nginx
+
+

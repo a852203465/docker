@@ -1,0 +1,19 @@
+2020/01/01 15:46:15 [warn] 6#0: *2 an upstream response is buffered to a temporary file /opt/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 192.168.20.1, server: , request: "GET /play/livestream.flv HTTP/1.1", upstream: "http://127.0.0.1:80/live?app=live&stream=livestream", host: "192.168.20.3"
+2020/01/01 15:51:00 [warn] 6#0: *2 an upstream response is buffered to a temporary file /opt/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 192.168.20.1, server: , request: "GET /live/livestream.flv HTTP/1.1", upstream: "http://127.0.0.1:80/live?app=live&stream=livestream", host: "192.168.20.3"
+2020/01/01 15:51:15 [warn] 6#0: *5 an upstream response is buffered to a temporary file /opt/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 192.168.20.1, server: , request: "GET /live/livestream.flv HTTP/1.1", upstream: "http://127.0.0.1:80/live?app=live&stream=livestream", host: "192.168.20.3"
+2020/01/01 15:51:45 [warn] 6#0: *8 an upstream response is buffered to a temporary file /opt/nginx/proxy_temp/3/00/0000000003 while reading upstream, client: 192.168.20.1, server: , request: "GET /live/livestream.flv HTTP/1.1", upstream: "http://127.0.0.1:80/live?app=live&stream=livestream", host: "192.168.20.3"
+2020/01/02 14:30:53 [error] 6#0: *20 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:17 [error] 6#0: *22 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:19 [error] 6#0: *25 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:23 [error] 6#0: *27 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:38 [error] 6#0: *29 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:38 [error] 6#0: *31 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:39 [error] 6#0: *33 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:39 [error] 6#0: *35 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:31:40 [error] 6#0: *37 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:00 [error] 6#0: *41 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:01 [error] 6#0: *43 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:01 [error] 6#0: *45 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:01 [error] 6#0: *47 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:06 [error] 6#0: *49 flv live: no on_play or relay pull, quit, client: 127.0.0.1, server: 0.0.0.0:1935
+2020/01/02 14:33:21 [warn] 6#0: *39 an upstream response is buffered to a temporary file /opt/nginx/proxy_temp/4/00/0000000004 while reading upstream, client: 192.168.20.1, server: , request: "GET /live/livestream.flv HTTP/1.1", upstream: "http://127.0.0.1:80/live?app=live&stream=livestream", host: "192.168.20.3"
